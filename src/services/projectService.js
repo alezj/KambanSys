@@ -1,6 +1,7 @@
 import { ProjectRepository } from "../repositories/projectRepository.js";
 import { UserService } from "./userService.js";
 import { Project } from "../models/project.js";
+import { ColumnService } from "./columnService.js";
 
 export class ProjectService {
 
@@ -8,6 +9,7 @@ export class ProjectService {
 
         this.repository = new ProjectRepository();
         this.userService = new UserService();
+        this.columnService = new ColumnService();
 
     }
 
@@ -51,6 +53,9 @@ export class ProjectService {
         projects.push(project);
 
         this.repository.save(projects);
+        
+        this.columnService.createDefaultColumns(project.id);
+
 
     }
 
