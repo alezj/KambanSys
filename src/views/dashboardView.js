@@ -25,19 +25,19 @@ export function renderDashboard() {
 
         title: "Nuevo Proyecto",
 
-        content: ProjectForm((project) => {
+        content: ProjectForm(null,(data) => {
 
             // console.log(project);
             projectService.create(
-            project.nombre,
-            project.descripcion
+            data.nombre,
+            data.descripcion
             );
             
             eventBus.publish(EVENTS.PROJECT_CREATED);
             modal.close();
                 // Temporalmente recargamos el dashboard
-                location.hash = "";
-                location.hash = "dashboard";
+                    // location.hash = "";
+                    // location.hash = "dashboard";
 
         })
 
