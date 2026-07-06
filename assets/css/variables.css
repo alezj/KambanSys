@@ -1,0 +1,18 @@
+:root {
+
+    --primary: #2563eb;
+    --secondary: #1e293b;
+
+    --success: #22c55e;
+    --warning: #eab308;
+    --danger: #ef4444;
+
+    --background: #f5f7fb;
+
+    --card: white;
+
+    --text: #1f2937;
+
+    --radius: 12px;
+
+}
