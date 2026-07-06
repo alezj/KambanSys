@@ -1,5 +1,6 @@
 import { BaseComponent } from "../../core/baseComponent.js";
 import { ColumnService } from "../../services/columnService.js";
+import { KanbanColumn } from "../KanbanColumn/kanbanColumn.js";
 
 const columnService = new ColumnService();
 
@@ -27,17 +28,26 @@ export class KanbanBoard extends BaseComponent {
 
         columns.forEach(column => {
 
-            const columnElement = document.createElement("div");
+    this.element.appendChild(
 
-            columnElement.className = "kanban-column";
+        KanbanColumn(column)
 
-            columnElement.innerHTML = `
-                <h2>${column.nombre}</h2>
-            `;
+    );
 
-            this.element.appendChild(columnElement);
+});
+        // columns.forEach(column => {
 
-        });
+        //     const columnElement = document.createElement("div");
+
+        //     columnElement.className = "kanban-column";
+
+        //     columnElement.innerHTML = `
+        //         <h2>${column.nombre}</h2>
+        //     `;
+
+        //     this.element.appendChild(columnElement);
+
+        // });
 
     }
 

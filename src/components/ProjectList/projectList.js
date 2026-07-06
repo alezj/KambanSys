@@ -34,9 +34,49 @@ export class ProjectList extends BaseComponent {
             EVENTS.PROJECT_DELETED,
             () => this.render()
         );
+        eventBus.subscribe(
+        EVENTS.TASK_CREATED,
+        () => this.renderTasks()
+       // renderTasks
+
+);
+
+    }
+ renderTasks() {
+
+    taskList.innerHTML = "";
+
+    const tasks = taskService.getByColumn(column.id);
+
+    if (tasks.length === 0) {
+
+        taskList.innerHTML = `
+
+            <p class="empty-message">
+
+                Sin tareas
+
+            </p>
+
+        `;
+
+        return;
 
     }
 
+    tasks.forEach(task => {
+
+        const div = document.createElement("div");
+
+        div.className = "task-card";
+
+        div.textContent = task.titulo;
+
+        taskList.appendChild(div);
+
+    });
+
+}
     render() {
 
         this.element.innerHTML = "";
