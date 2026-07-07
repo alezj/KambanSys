@@ -104,7 +104,7 @@ editProject(project) {
 
 }
     openProject(project) {
-
+   console.log("Proyecto seleccionado:", project);
         location.hash = `kanban/${project.id}`;
 
     }

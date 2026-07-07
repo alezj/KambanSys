@@ -86,57 +86,12 @@ export class ProjectService {
 
 }
 
+getById(id) {
+
+    return this
+        .repository
+        .getAll()
+        .find(project => project.id == id);
+
 }
-// import { ProjectRepository } from "../repositories/projectRepository.js";
-// import { UserService } from "./userService.js";
-
-// export class ProjectService {
-
-//     constructor() {
-
-//         this.repository = new ProjectRepository();
-//         this.userService = new UserService();
-
-//     }
-
-//     getProjects() {
-
-//         const user = this.userService.currentUser();
-
-//         if (!user)
-//             return [];
-
-//         return this
-//             .repository
-//             .getAll()
-//             .filter(p => p.usuarioId === user.id);
-
-//     }
-
-//     create(data) {
-
-//         const projects = this.repository.getAll();
-
-//         const user = this.userService.currentUser();
-
-//         const project = {
-
-//             id: Date.now(),
-
-//             usuarioId: user.id,
-
-//             nombre: data.nombre,
-
-//             descripcion: data.descripcion,
-
-//             color: data.color
-
-//         };
-
-//         projects.push(project);
-
-//         this.repository.save(projects);
-
-//     }
-
-// }
+}

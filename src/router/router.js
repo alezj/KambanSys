@@ -44,14 +44,20 @@ export function initRouter() {
     });
 
 }
+
 export function navigate(route, params = []) {
 
+        console.log("Ruta:", route);
+    console.log("Params:", params);
     if (
         protectedRoutes.includes(route) &&
         !userService.currentUser()
     ) {
+
         location.hash = "login";
+
         return;
+
     }
 
     const app = document.getElementById("app");
@@ -60,6 +66,20 @@ export function navigate(route, params = []) {
 
     const view = routes[route] || renderLogin;
 
-    app.appendChild(view(params));
+    switch (route) {
+
+        case ROUTES.KANBAN:
+
+            app.appendChild(view(params[0]));
+
+            break;
+
+        default:
+
+            app.appendChild(view());
+
+            break;
+
+    }
 
 }
