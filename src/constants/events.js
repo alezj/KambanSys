@@ -11,6 +11,8 @@ export const EVENTS = {
     TASK_UPDATED: "task-updated",
 
     TASK_DELETED: "task-deleted",
+    
+    TASK_MOVED: "task-moved",
 
     USER_LOGIN: "user-login",
 

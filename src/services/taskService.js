@@ -60,4 +60,21 @@ move(taskId, newColumnId) {
     this.repository.save(tasks);
 
 }
+update(id, titulo, descripcion) {
+
+    const tasks = this.repository.getAll();
+
+    const task = tasks.find(t => t.id == id);
+
+    if (!task)
+        return;
+
+    task.titulo = titulo;
+
+    task.descripcion = descripcion;
+
+    this.repository.save(tasks);
+
+}
+
 }
